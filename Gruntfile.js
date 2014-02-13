@@ -3,6 +3,18 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    clean: {
+      css: ['public/css'],
+      fonts: ['public/fonts'],
+      js: ['public/js']
+    },
+    copy: {
+      fonts: {
+        files: [
+          { expand: true, src: ['app/assets/bower_components/font-awesome/fonts/*'], dest: 'public/fonts', flatten: true, filter: 'isFile' }
+        ]
+      }
+    },
     less: {
       development: {
         files: {
@@ -26,14 +38,14 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['app/assets/js/**/*.js'],
-        tasks: ['jshint', 'uglify'],
+        tasks: ['jshint', 'clean:js', 'uglify'],
         options: {
           // livereload: true,
         },
       },
       css: {
         files: 'app/assets/less/**/*.less',
-        tasks: ['less'],
+        tasks: ['less', 'clean:css'],
         options: {
           // livereload: true,
         },
@@ -42,12 +54,14 @@ module.exports = function(grunt) {
   });
 
   // Load the plugins that provide the tasks.
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // register the tasks
-  grunt.registerTask('default', ['less:development', 'jshint', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'less:development', 'uglify']);
 
 };
