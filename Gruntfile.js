@@ -13,10 +13,20 @@ module.exports = function(grunt) {
     jshint: {
       all: ['Gruntfile.js', 'app/assets/js/*.js']
     },
+    uglify: {
+      app: {
+        files: {
+          'public/js/app.js': [
+            'app/assets/bower_components/jquery/jquery.js',
+            'app/assets/bower_components/underscore/js/underscore.js'
+          ]
+        }
+      }
+    },
     watch: {
       scripts: {
         files: ['app/assets/js/**/*.js'],
-        tasks: ['jshint'],
+        tasks: ['jshint', 'uglify'],
         options: {
           // livereload: true,
         },
@@ -38,6 +48,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // register the tasks
-  grunt.registerTask('default', ['less:development', 'jshint']);
+  grunt.registerTask('default', ['less:development', 'jshint', 'uglify']);
 
 };
