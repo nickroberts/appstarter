@@ -23,23 +23,3 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
     Route::controller('/', 'AdminDashboardController');
 });
-
-/*
-|--------------------------------------------------------------------------
-| Confide Routes
-|--------------------------------------------------------------------------
-*/
-
-Route::group(array('prefix' => 'user'), function()
-{
-    Route::get('create', 'UserController@create');
-    Route::post('/', 'UserController@store');
-    Route::get('login', 'UserController@login');
-    Route::post('login', 'UserController@do_login');
-    Route::get('confirm/{code}', 'UserController@confirm');
-    Route::get('forgot_password', 'UserController@forgot_password');
-    Route::post('forgot_password', 'UserController@do_forgot_password');
-    Route::get('reset_password/{token}', 'UserController@reset_password');
-    Route::post('reset_password', 'UserController@do_reset_password');
-    Route::get('logout', 'UserController@logout');
-});
