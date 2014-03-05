@@ -35,7 +35,10 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+    if (Auth::guest()) {
+        Session::put('loginRedirect', Request::url());
+        return Redirect::to('user/login/');
+    }
 });
 
 
@@ -78,3 +81,17 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| Entrust Admin Role
+|--------------------------------------------------------------------------
+|
+| This will allow only users with the Admin role access to the admin
+| area of the site
+|
+*/
+
+// Entrust::routeNeedsRole( 'admin*', 'Admin', function(){
+//         return Redirect::guest('user/login');
+// } );

@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function showIndex()
 	{
-		return View::make('index');
+		$this->layout->content = View::make('site/index');
 	}
 
 }

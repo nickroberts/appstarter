@@ -60,6 +60,19 @@ require $framework.'/Illuminate/Foundation/start.php';
 
 /*
 |--------------------------------------------------------------------------
+| Setup our local configuration
+|--------------------------------------------------------------------------
+|
+| This will load the local configuration of the database, so that we can
+| have multiple instances, each having their own configuration.
+|
+*/
+
+if(is_file($app['path.base'].'/data/config.php'))
+    require $app['path.base'].'/data/config.php';
+
+/*
+|--------------------------------------------------------------------------
 | Return The Application
 |--------------------------------------------------------------------------
 |

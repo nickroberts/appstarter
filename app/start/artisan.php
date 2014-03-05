@@ -11,3 +11,14 @@
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Add User
+|--------------------------------------------------------------------------
+|
+| This will add a new user to the database. You can choose whether or not
+| the user is an admin user.
+|
+*/
+
+Artisan::add(new AppAddUserCommand);
