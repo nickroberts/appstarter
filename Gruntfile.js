@@ -15,10 +15,10 @@ module.exports = function(grunt) {
         ]
       }
     },
-    less: {
+    sass: {
       development: {
         files: {
-          'public/css/app.css': 'app/assets/less/app.less'
+          'public/css/app.css': 'app/assets/scss/app.scss'
         }
       }
     },
@@ -40,14 +40,14 @@ module.exports = function(grunt) {
         files: ['app/assets/js/**/*.js'],
         tasks: ['jshint', 'clean:js', 'uglify'],
         options: {
-          // livereload: true,
+          livereload: true,
         },
       },
       css: {
-        files: 'app/assets/less/**/*.less',
-        tasks: ['less', 'clean:css'],
+        files: 'app/assets/scss/**/*.less',
+        tasks: ['sass', 'clean:css'],
         options: {
-          // livereload: true,
+          livereload: true,
         },
       },
     },
@@ -56,12 +56,12 @@ module.exports = function(grunt) {
   // Load the plugins that provide the tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // register the tasks
-  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'less:development', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'sass:development', 'uglify']);
 
 };
