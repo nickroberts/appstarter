@@ -8,11 +8,16 @@ Uses Laravel, Grunt, Bower, Node.
 
 ### Setting Up the Environment:
 
+Set the APPLICATION_ENVIRONMENT environment variable to one of three options:
+* local
+* qa
+* production
+
 **Apache:** *(in the site's conf file)*
 
 ```apache
 
-SetEnv LARAVEL_ENVIRONMENT local
+SetEnv APPLICATION_ENVIRONMENT local
 
 ```
 
@@ -20,13 +25,13 @@ SetEnv LARAVEL_ENVIRONMENT local
 
 ```nginx
 
-fastcgi_param LARAVEL_ENVIRONMENT local;
+fastcgi_param APPLICATION_ENVIRONMENT local;
 
 ```
 
 ### Database Connection
 
-In app/config/[ENVIRONMENT]/ create a database.php file with your settings:
+In app/config/[APPLICATION_ENVIRONMENT]/ create a database.php file with your settings:
 
 ```php
 <?php
@@ -84,7 +89,7 @@ return array(
 
 ### Application Settings
 
-In app/config/[ENVIRONMENT]/ create an app.php file with your settings:
+In app/config/[APPLICATION_ENVIRONMENT]/ create an app.php file with your settings:
 
 ```php
 <?php
