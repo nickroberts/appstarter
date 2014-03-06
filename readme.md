@@ -10,14 +10,18 @@ Uses Laravel, Grunt, Bower, Node.
 
 **Apache:** *(in the site's conf file)*
 
-```
+```apache
+
 SetEnv LARAVEL_ENVIRONMENT local
+
 ```
 
 **Nginx:** *(as a fastcgi_param)*
 
-```
+```nginx
+
 fastcgi_param LARAVEL_ENVIRONMENT local;
+
 ```
 
 ### Database Connection
