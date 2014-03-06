@@ -17,17 +17,13 @@ Set the APPLICATION_ENVIRONMENT environment variable to one of three options:
 **Apache:** *(in the site's conf file)*
 
 ```apache
-
 SetEnv APPLICATION_ENVIRONMENT local
-
 ```
 
 **Nginx:** *(as a fastcgi_param)*
 
 ```nginx
-
 fastcgi_param APPLICATION_ENVIRONMENT local;
-
 ```
 
 ### Database Connection
@@ -84,8 +80,6 @@ return array(
     ),
 
 );
-
-
 ```
 
 ### Application Settings
@@ -150,8 +144,6 @@ return array(
     'locale' => 'en',
 
 );
-
-
 ```
 
 ## Laravel PHP Framework
