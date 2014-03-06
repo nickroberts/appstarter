@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(function()
 {
-    return $_SERVER['APPLICATION_ENVIRONMENT'];
+    return isset($_SERVER['APPLICATION_ENVIRONMENT']) ? $_SERVER['APPLICATION_ENVIRONMENT'] : 'local';
 });
 
 /*
