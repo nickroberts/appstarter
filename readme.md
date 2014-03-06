@@ -1,5 +1,7 @@
 # Appstarter
 
+[![Build Status](https://travis-ci.org/nickroberts/appstarter.png?branch=master)](https://travis-ci.org/nickroberts/appstarter)
+
 Starting point for a new application.
 
 Uses Laravel, Grunt, Bower, Node.
