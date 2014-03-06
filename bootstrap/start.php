@@ -24,11 +24,10 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
-
-	'local' => array('your-machine-name'),
-
-));
+$env = $app->detectEnvironment(function()
+{
+    return $_SERVER['LARAVEL_ENVIRONMENT'];
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -68,8 +67,8 @@ require $framework.'/Illuminate/Foundation/start.php';
 |
 */
 
-if(is_file($app['path.base'].'/data/config.php'))
-    require $app['path.base'].'/data/config.php';
+// if(is_file($app['path.base'].'/data/config.php'))
+//     require $app['path.base'].'/data/config.php';
 
 /*
 |--------------------------------------------------------------------------
