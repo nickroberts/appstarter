@@ -9,6 +9,7 @@ Uses Laravel, Grunt, Bower, Node.
 ### Setting Up the Environment:
 
 Set the APPLICATION_ENVIRONMENT environment variable to one of three options:
+
 * local
 * qa
 * production
