@@ -9,6 +9,10 @@ php:
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
+  - npm install -g grunt-cli
+  - npm install
+
+script: grunt test
 
 script: phpunit -d memory_limit=1024M
 
