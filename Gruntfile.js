@@ -26,11 +26,20 @@ module.exports = function(grunt) {
       all: ['Gruntfile.js', 'app/assets/js/*.js']
     },
     uglify: {
+      head: {
+        files: {
+          'public/js/head.js': [
+            'app/assets/bower_components/modernizr/modernizr.js'
+          ]
+        }
+      },
       app: {
         files: {
           'public/js/app.js': [
             'app/assets/bower_components/jquery/jquery.js',
-            'app/assets/bower_components/underscore/js/underscore.js'
+            'app/assets/bower_components/underscore/js/underscore.js',
+            'app/assets/bower_components/foundation/js/foundation.js',
+            'app/assets/js/app.js',
           ]
         }
       }
@@ -44,8 +53,8 @@ module.exports = function(grunt) {
         },
       },
       css: {
-        files: 'app/assets/scss/**/*.less',
-        tasks: ['sass', 'clean:css'],
+        files: 'app/assets/scss/**/*.scss',
+        tasks: ['clean:css', 'sass'],
         options: {
           livereload: true,
         },
