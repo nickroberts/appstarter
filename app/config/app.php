@@ -108,6 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Zizaco\Entrust\EntrustServiceProvider',
 		'Zizaco\Confide\ConfideServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 	),
 
@@ -176,6 +177,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Entrust'         => 'Zizaco\Entrust\EntrustFacade',
 		'Confide'         => 'Zizaco\Confide\ConfideFacade',
+		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 
 	),
 
