@@ -72,6 +72,6 @@ module.exports = function(grunt) {
 
   // register the tasks
   grunt.registerTask('test', ['jshint']);
-  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'sass:development', 'uglify']);
+  grunt.registerTask('default', ['test', 'clean', 'copy', 'sass:development', 'uglify']);
 
 };
